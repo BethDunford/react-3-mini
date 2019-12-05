@@ -40,6 +40,9 @@ class App extends Component {
 
   sellCar(id) {
     // axios (DELETE)
+    axios.delete("http://joes-autos.herokuapp.com/api/vehicles/" + id).then((response) => {
+      console.log(response);
+    })
     // setState with response -> vehiclesToDisplay
   }
 
@@ -59,6 +62,15 @@ class App extends Component {
 
   updatePrice(priceChange, id) {
     // axios (PUT)
+    axios.put("http://joes-autos.herokuapp.com/api/vehicles/" + id "/" + priceChange).then((response) => {
+      console.log(response);
+    })
+
+    axios.put(`http://joes-autos.herokuapp.com/api/vehicles/${id}/${priceChange}`).then((respond) =>{
+      console.log(response);
+    })
+
+    axios.put("http://joes-auto.herokuapp.com/api/vehicles?id=12&priceChange=up") or "id=" + id + "&priceChage=" + priceChange)
     // setState with response -> vehiclesToDisplay
   }
 
@@ -72,6 +84,11 @@ class App extends Component {
     };
 
     // axios (POST)
+    axios.post("http://joes-autos.herokuapp.com/api/vehicles/", newCar).then((response) => {
+      console.log(response);
+    }).catch((err) => {
+      console.log(err);
+    })
     // setState with response -> vehiclesToDisplay
   }
 
